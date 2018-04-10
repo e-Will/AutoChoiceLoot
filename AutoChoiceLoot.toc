@@ -1,0 +1,13 @@
+## Interface: 11200
+## Title: Auto Choice Loot
+## Notes: Automatically selects/looting items
+## Version: 1.0
+## Author: e-Will
+## Dependencies:
+## SavedVariables: 
+## SavedVariablesPerCharacter: AutoChoiceLootOptions
+AutoChoiceLoot.lua
+AutoChoiceLoot.xml
+AutoChoiceLoot.Minimap.lua
+AutoChoiceLoot.Minimap.xml
+AutoChoiceLoot.Timer.lua

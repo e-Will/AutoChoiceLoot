@@ -1,0 +1,46 @@
+<Ui>
+<!-- Minimap button -->
+	<Button name="AutoChoiceLoot_IconFrame" frameStrata="LOW" parent="Minimap" enableMouse="true" movable="true" toplevel="true" hidden="false">
+		<Size>
+			<AbsDimension x="32" y="32"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT"/>
+		</Anchors>
+		<NormalTexture file="Interface\AddOns\AutoChoiceLoot\Images\AutoChoiceLoot-Icon-Up"/>
+		<PushedTexture file="Interface\AddOns\AutoChoiceLoot\Images\AutoChoiceLoot-Icon-Down"/>
+		<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+		<Scripts>
+			<OnLoad>
+				this:RegisterForClicks("LeftButtonUp","RightButtonUp")
+				this:RegisterForDrag("LeftButton")
+			</OnLoad>
+			<OnEnter>
+			<!--	AutoChoiceLoot.OnTooltip("AutoChoiceLoot",(AutoChoiceLootOptions.DisableToggle=="ON") and "Click: toggle options\nDrag: move icon" or "Left click: toggle frame\nRight click: toggle options\nDrag: move icon")-->
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide()
+			</OnLeave>
+			<OnDragStart>
+				this:LockHighlight()
+				AutoChoiceLoot.Timer.Start("DragMinimapButton")
+			</OnDragStart>
+			<OnDragStop>
+				AutoChoiceLoot.Timer.Stop("DragMinimapButton")
+				this:UnlockHighlight()
+			</OnDragStop>
+			<OnClick>
+				AutoChoiceLoot.MinimapButtonOnClick();
+			</OnClick>
+		</Scripts>
+	</Button>
+	
+	<!-- OnUpdate to process all timers -->
+	<Frame name="AutoChoiceLoot_TimersFrame" hidden="true">
+		<Scripts>
+			<OnUpdate>
+				AutoChoiceLoot.TimersFrame_OnUpdate()
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+</Ui>
