@@ -1,0 +1,116 @@
+Weapon & Armor
+	options
+		weapon
+			type {one hand | two hand | ranged}
+			quality
+			level
+		
+		armor 
+			type {cloth leather mail plate cloack shield miscellaneous }
+			quality
+			level
+			
+		
+Consumables
+	Flasks
+		Arcane Elixir
+		Catseye Elixir
+		Elixir of Dream Vision
+		Elixir of Giants
+		Elixir of Greater Agility
+		Greater Healing Potion
+		Greater Mana Potion
+		Healing Potion
+		Lesser Healing Potion
+		Lesser Mana Potion
+		Major Healing Potion
+		Major Mana Potion
+		Mana Potion
+		Minor Healing Potion
+		Minor Mana Potion
+		Minor Magic Resistance Potion
+	Potions
+	Scrolls	
+
+Instance
+	Naxxramas
+		Frozen Rune
+		Wartorn Chain Scrap
+		Wartorn Cloth Scrap
+		Wartorn Leather Scrap
+		Wartorn Plate Scrap
+	Temple of Ahn'Qiraj
+		Bone Scarab
+		Bronze Scarab
+		Clay Scarab
+		Crystal Scarab
+		Gold Scarab
+		Ivory Scarab
+		Silver Scarab
+		Stone Scarab
+		Scarab Bag
+		---
+		Alabaster Idol
+		Amber Idol
+		Azure Idol
+		Idol of Death
+		Idol of Ferocity
+		Idol of Life
+		Idol of Night
+		Idol of Rebirth
+		Idol of Strife
+		Idol of War
+		Idol of the Sage
+		Idol of the Sun
+		Jasper Idol
+		Lambent Idol
+		Obsidian Idol
+		Onyx Idol
+		Vermillion Idol
+	Zul'Gurub
+		Primal Hakkari Idol
+	
+Factions
+	Argent Dawn
+		Corruptor's Scourgestone
+		Invader's Scourgestone
+		Minion's Scourgestone
+		Bone Fragments
+		Core of Elements
+		Crypt Fiend Parts
+		Dark Iron Scraps
+		Savage Fronds
+		
+	Brood of Nozdormu
+		Qiraji Lord's Insignia
+		Silithid Carapace Fragment
+		
+	Cenarion Circle
+		Encrypted Twilight Text
+		Abyssal Crest
+		Abyssal Signet
+		Abyssal Scepter
+	Darkmoon Faire
+		Evil Bat Eye
+		Glowing Scorpid Blood
+	Thorium Brotherhood
+		Incendosaur Scale
+		Dark Iron Residue
+		-Core Leather
+		Fiery Core
+		Lava Core
+	Timbermaw Hold
+		Deadwood Headdress Feather
+		Winterfall Spirit Beads
+	Zandalar Tribe
+		Bloodscalp Coin
+		Gurubashi Coin
+		Hakkari Coin
+		Razzashi Coin
+		Sandfury Coin
+		Skullsplitter Coin
+		Vilebranch Coin
+		Witherbark Coin
+		Zulian Coin
+	
+Trade Goods
