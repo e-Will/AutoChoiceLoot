@@ -5,11 +5,6 @@ AutoChoiceLoot_TEXTADDONNAME = "Auto Choice Loot"
 -- для создания пространства имен
 AutoChoiceLoot = {};
 
--- для движения иконки у миникарты по кругу
-AutoChoiceLoot.Timer = {};
-
---AutoChoiceLoot.Raid = {};
-
 -- функции для работы с главной вкладкой
 AutoChoiceLoot.FrameGeneral = {};
 
@@ -45,6 +40,14 @@ function AutoChoiceLoot.Initialize()
 	AutoChoiceLoot.Timer.Create("DragMinimapButton",AutoChoiceLoot.DragMinimapButton,0,1);
 	
 	AutoChoiceLoot.MoveMinimapButton();
+	
+	
+	-- Player texture portrain
+	local playerTexture = AutoChoiceLootFrame:CreateTexture(nil, "BACKGROUND");
+	playerTexture:SetHeight(58);
+	playerTexture:SetWidth(58);
+	playerTexture:SetPoint("TOPLEFT", 10, -8);
+	SetPortraitTexture(playerTexture, "player");
 	
 end
 
@@ -131,6 +134,11 @@ function AutoChoiceLoot.FrameGeneral.FiltersUpdate()
 end
 
 function AutoChoiceLoot.FrameGeneral.UpdateClasses()
+end
+
+-- ON / OFF move
+function AutoChoiceLoot.FrameGeneral.ToogleLock()
+	
 end
 
 --[[  ]]--

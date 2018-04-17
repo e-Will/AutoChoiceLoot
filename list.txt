@@ -1,7 +1,7 @@
 Weapon & Armor
 	options
 		weapon
-			type {one hand | two hand | ranged}
+			type { one hand | two hand | ranged }
 			quality
 			level
 		
@@ -9,8 +9,9 @@ Weapon & Armor
 			type {cloth leather mail plate cloack shield miscellaneous }
 			quality
 			level
+		other
 			
-		
+			
 Consumables
 	Flasks
 		Arcane Elixir
@@ -23,15 +24,26 @@ Consumables
 		Healing Potion
 		Lesser Healing Potion
 		Lesser Mana Potion
+		Lesser Stoneshield Potion
 		Major Healing Potion
 		Major Mana Potion
 		Mana Potion
 		Minor Healing Potion
 		Minor Mana Potion
 		Minor Magic Resistance Potion
-	Potions
-	Scrolls	
-
+		Magic Resistance Potion
+		Major Healing Draught
+		Superior Mana Draught
+		Wildvine Potion
+	Food & Drink
+		level
+		
+	Scrolls
+		Scroll of 
+			Agility | Intellect | Protection | Spirit | Stamina | Strength
+			option 
+				level
+				
 Instance
 	Naxxramas
 		Frozen Rune
@@ -112,5 +124,9 @@ Factions
 		Vilebranch Coin
 		Witherbark Coin
 		Zulian Coin
+Recipe
+	Proffesion
+		
+		
 	
 Trade Goods

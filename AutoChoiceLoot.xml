@@ -3,65 +3,7 @@
 	xmlns="http://www.blizzard.com/wow/ui/">
 	
 	<!-- Templates -->
-	<Button name="AutoChoiceLootClassButtonTemplate" virtual="true">
-		<Size>
-			<AbsDimension x="136" y="20"/>
-		</Size>
-		<Layers>
-			<Layer level="BACKGROUND">
-				<Texture name="$parentLines" file="Interface\AuctionFrame\UI-AuctionFrame-FilterLines">
-					<Size>
-						<AbsDimension x="7" y="20"/>
-					</Size>
-					<Anchors>
-						<Anchor point="LEFT">
-							<Offset>
-								<AbsDimension x="13" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-					<TexCoords left="0" right="0.4375" top="0" bottom="0.625"/>
-				</Texture>
-			</Layer>
-		</Layers>
-		<Scripts>
-			<OnClick>
-				<!--AuctionFrameFilter_OnClick();-->
-			</OnClick>
-		</Scripts>
-		<NormalTexture name="$parentNormalTexture" file="Interface\AuctionFrame\UI-AuctionFrame-FilterBg">
-			<TexCoords left="0" right="0.53125" top="0" bottom="0.625"/>
-		</NormalTexture>
-		<HighlightTexture file="Interface\PaperDollInfoFrame\UI-Character-Tab-Highlight" alphaMode="ADD"/>
-		<NormalText name="$parentNormalText" inherits="GameFontNormalSmall" justifyH="LEFT">
-			<Anchors>
-				<Anchor point="LEFT">
-					<Offset>
-						<AbsDimension x="4" y="0"/>
-					</Offset>
-				</Anchor>
-			</Anchors>
-		</NormalText>
-		<HighlightText name="$parentHighlightText" inherits="GameFontHighlightSmall" justifyH="LEFT">
-			<Anchors>
-				<Anchor point="LEFT">
-					<Offset>
-						<AbsDimension x="4" y="0"/>
-					</Offset>
-				</Anchor>
-			</Anchors>
-		</HighlightText>
-	</Button>
-	
-	
-	<Button name="AutoChoiceLootTabTemplate" inherits="CharacterFrameTabButtonTemplate" virtual="true">
-		<Scripts>
-			<OnClick>
-				AutoChoiceLoot.Tab.OnClick();
-			</OnClick>
-		</Scripts>
-	</Button>
-	
+	<Include file="AutoChoiceLoot.Templates.xml" />
 	
 	<!-- Global Frame -->
 	<Frame name="AutoChoiceLootFrame" toplevel="true" frameStrata="LOW" enableMouse="true" movable="true" parent="UIParent" hidden="false">
@@ -75,6 +17,8 @@
 				</Offset>
 			</Anchor>
 		</Anchors>
+		
+		<!-- Art for portrain -->
 		<Layers>
 			<Layer level="BACKGROUND">
 				<Texture name="AutoChoiceLootPortraitTexture">
@@ -90,6 +34,8 @@
 					</Anchors>
 				</Texture>
 			</Layer>
+			
+			<!-- Art for background textures -->
 			<Layer level="ARTWORK">
 				<Texture name="$parentTopLeft" file="Interface\AuctionFrame\UI-AuctionFrame-Browse-TopLeft">
 					<Size>
@@ -162,8 +108,10 @@
 			</Layer>
 		</Layers>
 		
+		
 		<Frames>
-			<!-- Bottom Tabs x3 -->
+		
+			<!-- Bottom Tabs General -->
 			<Button name="AutoChoiceLootTab1" inherits="AutoChoiceLootTabTemplate" id="1" text="General">
 				<Anchors>
                     <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
@@ -173,6 +121,8 @@
                     </Anchor>
                 </Anchors>
 			</Button>
+			
+			<!-- Bottom Tabs History -->
 			<Button name="AutoChoiceLootTab2" inherits="AutoChoiceLootTabTemplate" id="2" text="History">
 				<Anchors>
                     <Anchor point="TOPLEFT" relativeTo="AutoChoiceLootTab1" relativePoint="TOPRIGHT">
@@ -182,6 +132,8 @@
                     </Anchor>
                 </Anchors>
 			</Button>
+			
+			<!-- Bottom Tabs Settings -->
 			<Button name="AutoChoiceLootTab3" inherits="AutoChoiceLootTabTemplate" id="3" text="Settings">
 				<Anchors>
                     <Anchor point="TOPLEFT" relativeTo="AutoChoiceLootTab2" relativePoint="TOPRIGHT">
@@ -190,7 +142,10 @@
                         </Offset>
                     </Anchor>
                 </Anchors>
-			</Button>	
+			</Button>
+			<!-- END BOTTOM TABs -->
+			
+			
 			<!-- Button [X]-Close -->
 			<Button name="AutoChoiceLootMainFrameCloseButton" inherits="UIPanelCloseButton">
 				<Anchors>
@@ -201,6 +156,39 @@
 					</Anchor>
 				</Anchors>
 			</Button>
+			
+			<!-- Button [lock] -->
+			<Button name="AutoChoiceLootMainFrameLockButton">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="AutoChoiceLootMainFrameCloseButton" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="10" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						AutoChoiceLoot.FrameGeneral.ToogleLock();
+					</OnClick>
+				</Scripts>
+				<NormalTexture name="AutoChoiceLootLockNorm"/>
+				<PushedTexture name="AutoChoiceLootLockPush"/>
+				<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" AlphaMode="ADD"/>
+			</Button>
+			
+			<Button name="AutoChoiceLootMainFrameLock" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="3" y="-8"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			
 			
 			<!-- General Tab-Frame -->
 			<Frame name="AutoChoiceLootFrameGeneral" hidden="false">
@@ -238,7 +226,8 @@
 				<!-- Class filters list of buttons -->
 				<Frames>
 					<!-- FILTERS -->
-					<Button name="AutoChoiceLootFilterButton1" inherits="AuctionClassButtonTemplate" id="1">
+					<!-- Trade Goods -->
+					<Button name="AutoChoiceLootFilterButton1" inherits="AutoChoiceLootClassButtonTemplate" id="1">
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
@@ -247,7 +236,9 @@
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="AutoChoiceLootFilterButton2" inherits="AuctionClassButtonTemplate" id="2">
+					
+					<!--  -->
+					<Button name="AutoChoiceLootFilterButton2" inherits="AutoChoiceLootClassButtonTemplate" id="2">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="AutoChoiceLootFilterButton1" relativePoint="BOTTOMLEFT">
 								<Offset>
@@ -256,7 +247,7 @@
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="AutoChoiceLootFilterButton3" inherits="AuctionClassButtonTemplate" id="3">
+					<Button name="AutoChoiceLootFilterButton3" inherits="AutoChoiceLootClassButtonTemplate" id="3">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="AutoChoiceLootFilterButton2" relativePoint="BOTTOMLEFT">
 								<Offset>
@@ -265,7 +256,7 @@
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="AutoChoiceLootFilterButton4" inherits="AuctionClassButtonTemplate" id="4">
+					<Button name="AutoChoiceLootFilterButton4" inherits="AutoChoiceLootClassButtonTemplate" id="4">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="AutoChoiceLootFilterButton3" relativePoint="BOTTOMLEFT">
 								<Offset>
@@ -274,7 +265,7 @@
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="AutoChoiceLootFilterButton5" inherits="AuctionClassButtonTemplate" id="5">
+					<Button name="AutoChoiceLootFilterButton5" inherits="AutoChoiceLootClassButtonTemplate" id="5">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="AutoChoiceLootFilterButton4" relativePoint="BOTTOMLEFT">
 								<Offset>
@@ -297,15 +288,16 @@
 							</Anchor>
 						</Anchors>
 						<Layers>
+							<Layers>
 							<Layer level="ARTWORK">
-								<Texture name="$parentTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+								<Texture file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
 									<Size>
 										<AbsDimension x="31" y="256"/>
 									</Size>
 									<Anchors>
-										<Anchor point="TOP" relativeTo="$parentScrollBarScrollUpButton">
+										<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
 											<Offset>
-												<AbsDimension x="0" y="5"/>
+												<AbsDimension x="-2" y="5"/>
 											</Offset>
 										</Anchor>
 									</Anchors>
@@ -316,15 +308,16 @@
 										<AbsDimension x="31" y="106"/>
 									</Size>
 									<Anchors>
-										<Anchor point="BOTTOM" relativeTo="$parentScrollBarScrollDownButton">
+										<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
 											<Offset>
-												<AbsDimension x="0" y="-2"/>
+												<AbsDimension x="-2" y="-2"/>
 											</Offset>
 										</Anchor>
 									</Anchors>
 									<TexCoords left="0.515625" right="1.0" top="0" bottom="0.4140625"/>
 								</Texture>
 							</Layer>
+						</Layers>
 						</Layers>
 						<Scripts>
 							<OnVerticalScroll>
@@ -347,14 +340,14 @@
 						</Anchors>
 						<Layers>
 							<Layer level="ARTWORK">
-								<Texture name="$parentTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+								<Texture file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
 									<Size>
 										<AbsDimension x="31" y="256"/>
 									</Size>
 									<Anchors>
-										<Anchor point="TOP" relativeTo="$parentScrollBarScrollUpButton">
+										<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
 											<Offset>
-												<AbsDimension x="0" y="5"/>
+												<AbsDimension x="-2" y="5"/>
 											</Offset>
 										</Anchor>
 									</Anchors>
@@ -365,9 +358,9 @@
 										<AbsDimension x="31" y="106"/>
 									</Size>
 									<Anchors>
-										<Anchor point="BOTTOM" relativeTo="$parentScrollBarScrollDownButton">
+										<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
 											<Offset>
-												<AbsDimension x="0" y="-2"/>
+												<AbsDimension x="-2" y="-2"/>
 											</Offset>
 										</Anchor>
 									</Anchors>
